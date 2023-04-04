@@ -4,7 +4,12 @@
   <groupId>com.fbiopereira</groupId>
   <artifactId>companybranches-cleanarch-springboot3</artifactId>
   <packaging>pom</packaging>
-  <version>1.0-SNAPSHOT</version>
+    <modules>
+      <module>domain</module>
+      <module>use_case</module>
+      <module>entrypoint</module>
+    </modules>
+    <version>1.0-SNAPSHOT</version>
   <name>Archetype - companybranches-cleanarch-springboot3</name>
   <url>http://maven.apache.org</url>
 </project>

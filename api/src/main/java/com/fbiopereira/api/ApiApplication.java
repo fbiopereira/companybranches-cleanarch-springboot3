@@ -1,13 +1,13 @@
-package com.fbiopereira.companybranchesspringboot3;
+package com.fbiopereira.api;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class CompanybranchesSpringboot3Application {
+public class ApiApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(CompanybranchesSpringboot3Application.class, args);
+        SpringApplication.run(ApiApplication.class, args);
     }
 
 }

@@ -1,10 +1,10 @@
-package com.fbiopereira.companybranchesspringboot3;
+package com.fbiopereira.api;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class CompanybranchesSpringboot3ApplicationTests {
+class ApiApplicationTests {
 
     @Test
     void contextLoads() {
