@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.fbiopereira</groupId>
     <artifactId>api</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0-SNAPSHOT</version>
     <name>api</name>
     <description>api</description>
     <properties>
@@ -32,6 +32,21 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.fbiopereira</groupId>
+            <artifactId>domain</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fbiopereira</groupId>
+            <artifactId>entrypoint</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fbiopereira</groupId>
+            <artifactId>use_case</artifactId>
+            <version>${project.version}</version>
         </dependency>
     </dependencies>
 
