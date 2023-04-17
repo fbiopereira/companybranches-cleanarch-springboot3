@@ -1,4 +1,4 @@
-package com.fbiopereira.api;
+package com.fbiopereira.domain.api;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

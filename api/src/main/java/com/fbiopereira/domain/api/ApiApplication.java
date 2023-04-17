@@ -1,4 +1,4 @@
-package com.fbiopereira.api;
+package com.fbiopereira.domain.api;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
