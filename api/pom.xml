@@ -45,7 +45,7 @@
         </dependency>
         <dependency>
             <groupId>com.fbiopereira</groupId>
-            <artifactId>use_case</artifactId>
+            <artifactId>usecase</artifactId>
             <version>${project.version}</version>
         </dependency>
     </dependencies>

@@ -6,7 +6,7 @@
   <packaging>pom</packaging>
     <modules>
       <module>domain</module>
-      <module>use_case</module>
+      <module>usecase</module>
       <module>entrypoint</module>
       <module>api</module>
     </modules>

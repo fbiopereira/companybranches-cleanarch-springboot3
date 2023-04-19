@@ -1,13 +1,19 @@
-package com.fbiopereira.domain.model;
+package com.fbiopereira.entrypoint.dataprovider.relational.entities;
 
 import com.fbiopereira.domain.enums.CompanyBranchType;
 
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
+@Entity
 public class CompanyBranch {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int branchId;
+    @Column(nullable = false, unique = false, length = 200)
     private String name;
+    @Column(nullable = false, unique = false)
     private int taxIdentificationNumber;
 
     private String city;
@@ -16,8 +22,10 @@ public class CompanyBranch {
 
     private CompanyBranchType companyBranchType;
 
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private boolean operative;
 
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private LocalDateTime registerDate;
 
     private LocalDateTime lastUpdated;
