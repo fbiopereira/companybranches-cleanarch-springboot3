@@ -48,6 +48,11 @@
             <artifactId>usecase</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.fbiopereira</groupId>
+            <artifactId>dataprovider</artifactId>
+            <version>${project.version}</version>
+        </dependency>
     </dependencies>
 
     <build>

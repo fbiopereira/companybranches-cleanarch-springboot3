@@ -9,6 +9,7 @@
       <module>usecase</module>
       <module>entrypoint</module>
       <module>api</module>
+        <module>dataprovider</module>
     </modules>
     <version>1.0-SNAPSHOT</version>
   <name>Archetype - companybranches-cleanarch-springboot3</name>

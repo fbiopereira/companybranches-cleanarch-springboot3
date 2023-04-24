@@ -1,4 +1,4 @@
-package com.fbiopereira.entrypoint.dataprovider.relational.entities;
+package com.fbiopereira.dataprovider.relational.entities;
 
 import com.fbiopereira.domain.enums.CompanyBranchType;
 

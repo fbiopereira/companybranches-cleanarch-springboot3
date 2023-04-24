@@ -3,10 +3,11 @@ package com.fbiopereira.domain.model;
 import com.fbiopereira.domain.enums.CompanyBranchType;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 public class CompanyBranch {
 
-    private int branchId;
+    private UUID branchId;
     private String name;
     private int taxIdentificationNumber;
 
@@ -22,11 +23,11 @@ public class CompanyBranch {
 
     private LocalDateTime lastUpdated;
 
-    public int getBranchId() {
+    public UUID getBranchId() {
         return branchId;
     }
 
-    public void setBranchId(int branchId) {
+    public void setBranchId(UUID branchId) {
         this.branchId = branchId;
     }
 
