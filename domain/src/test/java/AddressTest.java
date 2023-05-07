@@ -10,7 +10,7 @@ public class AddressTest {
 
         Address address = new Address();
         assertNull(address.getZipCode());
-        assertNull(address.getAddress());
+        assertNull(address.getStreet());
         assertNull(address.getAddressComplement());
         assertNull(address.getCity());
         assertNull(address.getState());

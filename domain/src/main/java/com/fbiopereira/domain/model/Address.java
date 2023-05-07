@@ -4,7 +4,7 @@ public class Address {
 
     //<editor-fold desc="PROPERTIES">
     private String zipCode;
-    private String address;
+    private String street;
     private String addressComplement;
     private String city;
     private String state;
@@ -21,12 +21,12 @@ public class Address {
     }
 
 
-    public String getAddress() {
-        return address;
+    public String getStreet() {
+        return street;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setStreet(String street) {
+        this.street = street;
     }
 
     public String getAddressComplement() {
