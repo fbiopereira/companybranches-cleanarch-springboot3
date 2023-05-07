@@ -7,15 +7,20 @@ import java.util.UUID;
 
 public class CompanyBranch {
 
+    //<editor-fold desc="PROPERTIES">
     private UUID branchId;
     private String name;
     private int taxIdentificationNumber;
 
+    private CompanyBranchType companyBranchType;
+    private String zipCode;
+
+    private String address;
+
+    private String addressComplement;
     private String city;
 
     private String state;
-
-    private CompanyBranchType companyBranchType;
 
     private boolean operative;
 
@@ -23,6 +28,19 @@ public class CompanyBranch {
 
     private LocalDateTime lastUpdated;
 
+    //</editor-fold>
+
+    //<editor-fold desc="CONSTRUCTORS">
+
+    public CompanyBranch() {
+        this.operative = true;
+        this.registerDate = LocalDateTime.now();
+    }
+
+
+    //</editor-fold>
+
+    //<editor-fold desc="GETTERS AND SETTERS">
     public UUID getBranchId() {
         return branchId;
     }
@@ -47,6 +65,39 @@ public class CompanyBranch {
         this.taxIdentificationNumber = taxIdentificationNumber;
     }
 
+    public CompanyBranchType getCompanyBranchType() {
+        return companyBranchType;
+    }
+
+    public void setCompanyBranchType(CompanyBranchType companyBranchType) {
+        this.companyBranchType = companyBranchType;
+    }
+
+    public String getZipCode() {
+        return zipCode;
+    }
+
+    public void setZipCode(String zipCode) {
+        this.zipCode = zipCode;
+    }
+
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getAddressComplement() {
+        return addressComplement;
+    }
+
+    public void setAddressComplement(String addressComplement) {
+        this.addressComplement = addressComplement;
+    }
+
     public String getCity() {
         return city;
     }
@@ -61,14 +112,6 @@ public class CompanyBranch {
 
     public void setState(String state) {
         this.state = state;
-    }
-
-    public CompanyBranchType getCompanyBranchType() {
-        return companyBranchType;
-    }
-
-    public void setCompanyBranchType(CompanyBranchType companyBranchType) {
-        this.companyBranchType = companyBranchType;
     }
 
     public boolean isOperative() {
@@ -94,4 +137,6 @@ public class CompanyBranch {
     public void setLastUpdated(LocalDateTime lastUpdated) {
         this.lastUpdated = lastUpdated;
     }
+    //</editor-fold>
+
 }

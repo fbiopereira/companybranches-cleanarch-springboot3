@@ -1,40 +1,59 @@
+/**
 package com.fbiopereira.dataprovider.relational.entities;
 
 import com.fbiopereira.domain.enums.CompanyBranchType;
+import org.hibernate.annotations.GenericGenerator;
+import org.springframework.data.annotation.Id;
+
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 @Entity
-public class CompanyBranch {
+public class CompanyBranchEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int branchId;
-    @Column(nullable = false, unique = false, length = 200)
+    @Column(nullable = false, unique = true)
+    @GenericGenerator(name = "uuid", strategy = "uuid4")
+    private UUID branchId;
+    @Column(nullable = false, length = 200)
     private String name;
-    @Column(nullable = false, unique = false)
+    @Column(nullable = false, unique = true)
     private int taxIdentificationNumber;
 
-    private String city;
-
-    private String state;
-
+    @Column(nullable = false)
     private CompanyBranchType companyBranchType;
 
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(nullable = false)
+    private String zipCode;
+
+    @Column(nullable = false)
+    private String address;
+
+    @Column(nullable = false)
+    private String addressComplement;
+    @Column(nullable = false)
+    private String city;
+
+    @Column(nullable = false)
+    private String state;
+
+    @Column(nullable = false)
     private boolean operative;
 
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(nullable = false)
     private LocalDateTime registerDate;
 
     private LocalDateTime lastUpdated;
 
-    public int getBranchId() {
+
+    //<editor-fold desc="GETTERS AND SETTERS">
+    public UUID getBranchId() {
         return branchId;
     }
 
-    public void setBranchId(int branchId) {
+    public void setBranchId(UUID branchId) {
         this.branchId = branchId;
     }
 
@@ -54,6 +73,39 @@ public class CompanyBranch {
         this.taxIdentificationNumber = taxIdentificationNumber;
     }
 
+    public CompanyBranchType getCompanyBranchType() {
+        return companyBranchType;
+    }
+
+    public void setCompanyBranchType(CompanyBranchType companyBranchType) {
+        this.companyBranchType = companyBranchType;
+    }
+
+    public String getZipCode() {
+        return zipCode;
+    }
+
+    public void setZipCode(String zipCode) {
+        this.zipCode = zipCode;
+    }
+
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getAddressComplement() {
+        return addressComplement;
+    }
+
+    public void setAddressComplement(String addressComplement) {
+        this.addressComplement = addressComplement;
+    }
+
     public String getCity() {
         return city;
     }
@@ -68,14 +120,6 @@ public class CompanyBranch {
 
     public void setState(String state) {
         this.state = state;
-    }
-
-    public CompanyBranchType getCompanyBranchType() {
-        return companyBranchType;
-    }
-
-    public void setCompanyBranchType(CompanyBranchType companyBranchType) {
-        this.companyBranchType = companyBranchType;
     }
 
     public boolean isOperative() {
@@ -101,4 +145,8 @@ public class CompanyBranch {
     public void setLastUpdated(LocalDateTime lastUpdated) {
         this.lastUpdated = lastUpdated;
     }
+    //</editor-fold>
+
+
 }
+**/
