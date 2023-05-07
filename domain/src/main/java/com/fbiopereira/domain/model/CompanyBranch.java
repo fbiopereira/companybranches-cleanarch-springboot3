@@ -11,21 +11,9 @@ public class CompanyBranch {
     private UUID branchId;
     private String name;
     private int taxIdentificationNumber;
-
     private CompanyBranchType companyBranchType;
-    private String zipCode;
-
-    private String address;
-
-    private String addressComplement;
-    private String city;
-
-    private String state;
-
     private boolean operative;
-
     private LocalDateTime registerDate;
-
     private LocalDateTime lastUpdated;
 
     //</editor-fold>
@@ -71,47 +59,6 @@ public class CompanyBranch {
 
     public void setCompanyBranchType(CompanyBranchType companyBranchType) {
         this.companyBranchType = companyBranchType;
-    }
-
-    public String getZipCode() {
-        return zipCode;
-    }
-
-    public void setZipCode(String zipCode) {
-        this.zipCode = zipCode;
-    }
-
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getAddressComplement() {
-        return addressComplement;
-    }
-
-    public void setAddressComplement(String addressComplement) {
-        this.addressComplement = addressComplement;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public String getState() {
-        return state;
-    }
-
-    public void setState(String state) {
-        this.state = state;
     }
 
     public boolean isOperative() {

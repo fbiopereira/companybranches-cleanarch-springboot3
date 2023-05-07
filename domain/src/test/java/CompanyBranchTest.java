@@ -13,11 +13,6 @@ class CompanyBranchTest {
         assertNull(companyBranch.getName());
         assertNull(companyBranch.getCompanyBranchType());
         assertEquals(0, companyBranch.getTaxIdentificationNumber());
-        assertNull(companyBranch.getZipCode());
-        assertNull(companyBranch.getAddress());
-        assertNull(companyBranch.getAddressComplement());
-        assertNull(companyBranch.getCity());
-        assertNull(companyBranch.getState());
         assertTrue(companyBranch.isOperative());
         assertNotNull(companyBranch.getRegisterDate());
         assertNull(companyBranch.getLastUpdated());
