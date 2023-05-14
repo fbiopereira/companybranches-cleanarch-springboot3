@@ -2,11 +2,10 @@
 package com.fbiopereira.dataprovider.relational.entities;
 
 import com.fbiopereira.domain.enums.CompanyBranchType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import org.hibernate.annotations.GenericGenerator;
-import org.springframework.data.annotation.Id;
-
-
-import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.UUID;
 

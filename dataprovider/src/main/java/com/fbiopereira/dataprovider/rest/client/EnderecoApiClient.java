@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 @FeignClient(
         name = "EnderecoApiClient",
-        url = "${enderecoApi.client.address.url}"
+        url = "${enderecoApi.url}"
 )
 public interface EnderecoApiClient {
 
