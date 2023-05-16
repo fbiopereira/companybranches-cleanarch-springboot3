@@ -1,4 +1,0 @@
-enderecoApi:
-  client:
-    address:
-      url: http://localhost:9999/enderecoApi
