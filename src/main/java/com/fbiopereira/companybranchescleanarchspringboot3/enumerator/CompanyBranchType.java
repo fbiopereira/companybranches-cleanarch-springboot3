@@ -1,4 +1,4 @@
-package com.fbiopereira.companybranchescleanarchspringboot3.domain.enumerator;
+package com.fbiopereira.companybranchescleanarchspringboot3.enumerator;
 
 public enum CompanyBranchType {
     Deposit("CD"),

@@ -1,4 +1,4 @@
-package com.fbiopereira.companybranchescleanarchspringboot3.domain.model;
+package com.fbiopereira.companybranchescleanarchspringboot3.model;
 
 public class Address {
 

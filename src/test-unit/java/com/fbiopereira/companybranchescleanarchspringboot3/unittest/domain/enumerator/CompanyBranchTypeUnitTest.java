@@ -1,6 +1,6 @@
-package com.fbiopereira.companybranchescleanarchspringboot3.domain;
+package com.fbiopereira.companybranchescleanarchspringboot3.unittest.domain.enumerator;
 
-import com.fbiopereira.companybranchescleanarchspringboot3.domain.enumerator.CompanyBranchType;
+import com.fbiopereira.companybranchescleanarchspringboot3.enumerator.CompanyBranchType;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

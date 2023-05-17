@@ -1,8 +1,9 @@
-package com.fbiopereira.companybranchescleanarchspringboot3.domain.model;
+package com.fbiopereira.companybranchescleanarchspringboot3.model;
 
 
 
-import com.fbiopereira.companybranchescleanarchspringboot3.domain.enumerator.CompanyBranchType;
+import com.fbiopereira.companybranchescleanarchspringboot3.enumerator.CompanyBranchType;
+import com.fbiopereira.companybranchescleanarchspringboot3.exception.InvalidCompanyBranchNameException;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
@@ -43,8 +44,12 @@ public class CompanyBranch {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setName(String name) throws InvalidCompanyBranchNameException {
+
+        if (name.matches("^\\w{3,200}")) {
+            this.name = name;
+        } else throw new InvalidCompanyBranchNameException("Invalid company branch name. It must have from 3 to 200 characters.");
+
     }
 
     public int getTaxIdentificationNumber() {

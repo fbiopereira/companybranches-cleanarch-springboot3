@@ -1,7 +1,7 @@
-package com.fbiopereira.companybranchescleanarchspringboot3.domain;
+package com.fbiopereira.companybranchescleanarchspringboot3.unittest.domain.model;
 
 
-import com.fbiopereira.companybranchescleanarchspringboot3.domain.model.Address;
+import com.fbiopereira.companybranchescleanarchspringboot3.model.Address;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
