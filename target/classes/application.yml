@@ -1,0 +1,4 @@
+fbiopereira:
+    restClient:
+        enderecoApiUrl: http://localhost:8081/enderecoApi
+
