@@ -6,7 +6,7 @@ import javax.annotation.processing.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2023-05-17T19:51:31-0300",
+    date = "2023-05-28T18:40:36-0300",
     comments = "version: 1.5.5.Final, compiler: javac, environment: Java 17.0.4.1 (Microsoft)"
 )
 public class EnderecoApiResponseMapperImpl implements EnderecoApiResponseMapper {
@@ -20,7 +20,7 @@ public class EnderecoApiResponseMapperImpl implements EnderecoApiResponseMapper 
         Address address = new Address();
 
         address.setZipCode( enderecoApiResponse.getCep() );
-        address.setStreet( enderecoApiResponse.getRua() );
+        address.setStreet( enderecoApiResponse.getLogradouro() );
         address.setCity( enderecoApiResponse.getCidade() );
         address.setState( enderecoApiResponse.getUf() );
 

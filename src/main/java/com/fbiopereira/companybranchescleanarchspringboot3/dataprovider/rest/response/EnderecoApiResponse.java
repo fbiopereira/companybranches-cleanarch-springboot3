@@ -5,7 +5,8 @@ public class EnderecoApiResponse {
 
     //<editor-fold desc="PROPERTIES">
     private String cep;
-    private String rua;
+    private String logradouro;
+    private String bairro;
     private String cidade;
     private String uf;
 
@@ -20,14 +21,21 @@ public class EnderecoApiResponse {
         this.cep = cep;
     }
 
-    public String getRua() {
-        return rua;
+    public String getLogradouro() {
+        return logradouro;
     }
 
-    public void setRua(String rua) {
-        this.rua = rua;
+    public void setLogradouro(String logradouro) {
+        this.logradouro = logradouro;
     }
 
+    public String getBairro() {
+        return bairro;
+    }
+
+    public void setBairro(String bairro) {
+        this.bairro = bairro;
+    }
     public String getCidade() {
         return cidade;
     }

@@ -11,10 +11,10 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class EnderecoApiFeignConfiguration {
 
-    @Value("${feign.configuration.connectTimeoutMilis}")
+    @Value("${fbiopereira.enderecoApiClient.connectTimeoutMilis}")
     public int connectTimeoutMilis;
 
-    @Value("${feign.configuration.readTimeoutMilis}")
+    @Value("${fbiopereira.enderecoApiClient.readTimeoutMilis}")
     public int readTimeoutMilis;
 
     @Bean

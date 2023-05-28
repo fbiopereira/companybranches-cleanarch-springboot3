@@ -8,7 +8,7 @@ import org.mapstruct.Mapping;
 public interface EnderecoApiResponseMapper {
 
     @Mapping(source = "enderecoApiResponse.cep", target = "zipCode")
-    @Mapping(source = "enderecoApiResponse.rua", target = "street")
+    @Mapping(source = "enderecoApiResponse.logradouro", target = "street")
     @Mapping(source = "enderecoApiResponse.cidade", target = "city")
     @Mapping(source = "enderecoApiResponse.uf", target = "state")
     Address enderecoApiResponseToAddress(EnderecoApiResponse enderecoApiResponse);
