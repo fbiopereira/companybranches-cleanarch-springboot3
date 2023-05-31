@@ -1,5 +1,6 @@
 package com.fbiopereira.companybranchescleanarchspringboot3.dataprovider.rest.customerrordecoder;
 
+import com.fbiopereira.companybranchescleanarchspringboot3.dataprovider.exception.EnderecoApiClientException;
 import feign.Response;
 import feign.codec.ErrorDecoder;
 
@@ -9,13 +10,13 @@ public class EnderecoApiErrorDecoder implements ErrorDecoder {
     public Exception decode(String methodKey, Response response) {
         switch (response.status()){
             case 400:
-                return new Exception();
+                return new EnderecoApiClientException("Bad Request", 400);
             case 404:
-                return new Exception("ZipCode not found");
+                return new EnderecoApiClientException("ZipCode not found", 404);
             case 503:
-                return new Exception("EnderecoAPI is unavailable");
+                return new EnderecoApiClientException("EnderecoAPI is unavailable", 503);
             default:
-                return new Exception("Exception while getting Address by ZipCode");
+                return new EnderecoApiClientException("Exception while getting Address by ZipCode", 500);
         }
     }
 }
