@@ -3,7 +3,9 @@ package com.fbiopereira.companybranchescleanarchspringboot3.dataprovider.rest.cu
 import com.fbiopereira.companybranchescleanarchspringboot3.dataprovider.exception.EnderecoApiClientException;
 import feign.Response;
 import feign.codec.ErrorDecoder;
+import org.springframework.stereotype.Component;
 
+@Component
 public class EnderecoApiErrorDecoder implements ErrorDecoder {
 
     @Override

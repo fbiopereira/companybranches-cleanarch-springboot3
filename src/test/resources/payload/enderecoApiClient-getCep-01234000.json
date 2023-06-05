@@ -12,5 +12,7 @@
   "location": {
     "lat": -23.53132572,
     "lon": -46.66101869
-  }
+  },
+  "status_http": 200,
+  "mensagem": null
 }

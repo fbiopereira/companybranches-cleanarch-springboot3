@@ -1,9 +1,0 @@
-fbiopereira:
-    enderecoApiClient:
-        apiUrl: http://localhost:8081/enderecoApi
-        connectTimeoutMilis: 5000
-        readTimeoutMilis: 5000
-
-
-
-

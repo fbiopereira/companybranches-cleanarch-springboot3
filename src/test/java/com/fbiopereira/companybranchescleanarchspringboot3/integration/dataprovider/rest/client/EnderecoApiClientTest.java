@@ -2,6 +2,7 @@ package com.fbiopereira.companybranchescleanarchspringboot3.integration.dataprov
 
 
 import com.fbiopereira.companybranchescleanarchspringboot3.configuration.WiremockConfiguration;
+import com.fbiopereira.companybranchescleanarchspringboot3.dataprovider.exception.EnderecoApiClientException;
 import com.fbiopereira.companybranchescleanarchspringboot3.dataprovider.rest.client.EnderecoApiClient;
 import com.fbiopereira.companybranchescleanarchspringboot3.dataprovider.rest.response.EnderecoApiResponse;
 import com.github.tomakehurst.wiremock.WireMockServer;
@@ -17,8 +18,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import java.io.IOException;
 import java.net.URL;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 
 @RunWith(SpringRunner.class)
@@ -39,15 +39,20 @@ public class EnderecoApiClientTest {
     @Before
     public void setUp() throws Exception {
 
-        enderecoApiUrlObject = new URL(enderecoApiUrl);
-        wireMockServer = WiremockConfiguration.build(enderecoApiUrlObject);
+        if (wireMockServer == null) {
+            enderecoApiUrlObject = new URL(enderecoApiUrl);
+            wireMockServer = WiremockConfiguration.build(enderecoApiUrlObject);
+        }
         wireMockServer.start();
 
     }
 
     @After
     public void finish(){
-        wireMockServer.shutdown();
+        if (wireMockServer != null && wireMockServer.isRunning()) {
+            wireMockServer.stop();
+            wireMockServer.shutdown();
+        }
     }
 
 
@@ -64,5 +69,39 @@ public class EnderecoApiClientTest {
        assertEquals("Pacaembu", enderecoApiResponse.getBairro());
        assertEquals("São Paulo", enderecoApiResponse.getCidade());
        assertEquals("SP", enderecoApiResponse.getUf());
+       assertEquals(200, enderecoApiResponse.getStatus_http());
+       assertNull(enderecoApiResponse.getMensagem());
+
     }
+
+    @Test
+    @DisplayName("Integration Test for EnderecoApiClient get Cep not Found")
+    public void testEnderecoApiClientGetCepNotFound() throws IOException {
+        String endpoint = enderecoApiUrlObject.getPath() + "/cep/01234000";
+        WiremockConfiguration.wireMockClientResponseMock(wireMockServer, endpoint, HttpStatus.NOT_FOUND.value(), "payload/enderecoApiClient-getCep-notFound-01234000.json");
+        EnderecoApiResponse enderecoApiResponse = enderecoApiClient.find("01234000");
+
+        assertNotNull(enderecoApiResponse);
+        assertEquals(404, enderecoApiResponse.getStatus_http());
+        assertEquals("01234-000", enderecoApiResponse.getCep());
+        assertEquals("O CEP 01234-000 não foi encontrado", enderecoApiResponse.getMensagem());
+        assertNull(enderecoApiResponse.getLogradouro());
+        assertNull(enderecoApiResponse.getBairro());
+        assertNull(enderecoApiResponse.getCidade());
+        assertNull(enderecoApiResponse.getUf());
+
+    }
+
+    @Test
+    @DisplayName("Integration Test for EnderecoApiClient - API Offline")
+    public void testEnderecoApiClientOffline() throws IOException {
+        String endpoint = enderecoApiUrlObject.getPath() + "/cep/01234000";
+        wireMockServer.stop();
+        wireMockServer.shutdown();
+
+        assertThrows(EnderecoApiClientException.class, () -> enderecoApiClient.find("01234000"));
+
+
+    }
+
 }

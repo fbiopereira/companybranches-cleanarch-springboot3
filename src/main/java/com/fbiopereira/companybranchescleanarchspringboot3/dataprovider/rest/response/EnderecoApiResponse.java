@@ -10,6 +10,11 @@ public class EnderecoApiResponse {
     private String cidade;
     private String uf;
 
+    private int status_http;
+
+    private String mensagem;
+
+
     //</editor-fold>
 
     //<editor-fold desc="GETTERS AND SETTERS">
@@ -50,6 +55,22 @@ public class EnderecoApiResponse {
 
     public void setUf(String uf) {
         this.uf = uf;
+    }
+
+    public int getStatus_http() {
+        return status_http;
+    }
+
+    public void setStatus_http(int http_status) {
+        this.status_http = http_status;
+    }
+
+    public String getMensagem() {
+        return mensagem;
+    }
+
+    public void setMensagem(String mensagem) {
+        this.mensagem = mensagem;
     }
 
     //</editor-fold>
