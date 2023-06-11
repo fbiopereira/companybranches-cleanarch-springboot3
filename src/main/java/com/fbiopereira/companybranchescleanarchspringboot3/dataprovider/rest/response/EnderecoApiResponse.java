@@ -74,4 +74,19 @@ public class EnderecoApiResponse {
     }
 
     //</editor-fold>
+
+
+    @Override
+    public String toString() {
+        return "EnderecoApiResponse{" +
+                "cep='" + cep + '\'' +
+                ", logradouro='" + logradouro + '\'' +
+                ", bairro='" + bairro + '\'' +
+                ", cidade='" + cidade + '\'' +
+                ", uf='" + uf + '\'' +
+                ", status_http=" + status_http +
+                ", mensagem='" + mensagem + '\'' +
+                '}';
+    }
+
 }

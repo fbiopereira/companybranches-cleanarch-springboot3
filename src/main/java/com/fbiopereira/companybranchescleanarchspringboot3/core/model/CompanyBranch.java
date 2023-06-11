@@ -1,4 +1,4 @@
-package com.fbiopereira.companybranchescleanarchspringboot3.model;
+package com.fbiopereira.companybranchescleanarchspringboot3.core.model;
 
 
 

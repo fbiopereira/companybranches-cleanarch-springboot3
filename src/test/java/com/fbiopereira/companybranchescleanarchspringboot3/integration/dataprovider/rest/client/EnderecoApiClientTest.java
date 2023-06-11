@@ -2,10 +2,11 @@ package com.fbiopereira.companybranchescleanarchspringboot3.integration.dataprov
 
 
 import com.fbiopereira.companybranchescleanarchspringboot3.configuration.WiremockConfiguration;
-import com.fbiopereira.companybranchescleanarchspringboot3.dataprovider.exception.EnderecoApiClientException;
+import com.fbiopereira.companybranchescleanarchspringboot3.dataprovider.exception.EnderecoApiClientZipCodeNotFoundException;
 import com.fbiopereira.companybranchescleanarchspringboot3.dataprovider.rest.client.EnderecoApiClient;
 import com.fbiopereira.companybranchescleanarchspringboot3.dataprovider.rest.response.EnderecoApiResponse;
 import com.github.tomakehurst.wiremock.WireMockServer;
+import feign.RetryableException;
 import org.junit.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.runner.RunWith;
@@ -60,7 +61,7 @@ public class EnderecoApiClientTest {
     @DisplayName("Integration Test for EnderecoApiClient get Cep with value 01234000")
     public void testEnderecoApiClientGetCep() throws IOException {
        String endpoint = enderecoApiUrlObject.getPath() + "/cep/01234000";
-       WiremockConfiguration.wireMockClientResponseMock(wireMockServer, endpoint, HttpStatus.OK.value(), "payload/enderecoApiClient-getCep-01234000.json");
+       WiremockConfiguration.wireMockClientResponseJsonMock(wireMockServer, endpoint, HttpStatus.OK.value(), "payload/enderecoApiClient-getCep-01234000.json");
        EnderecoApiResponse enderecoApiResponse = enderecoApiClient.find("01234000");
 
        assertNotNull(enderecoApiResponse);
@@ -77,19 +78,12 @@ public class EnderecoApiClientTest {
     @Test
     @DisplayName("Integration Test for EnderecoApiClient get Cep not Found")
     public void testEnderecoApiClientGetCepNotFound() throws IOException {
-        String endpoint = enderecoApiUrlObject.getPath() + "/cep/01234000";
-        WiremockConfiguration.wireMockClientResponseMock(wireMockServer, endpoint, HttpStatus.NOT_FOUND.value(), "payload/enderecoApiClient-getCep-notFound-01234000.json");
-        EnderecoApiResponse enderecoApiResponse = enderecoApiClient.find("01234000");
 
-        assertNotNull(enderecoApiResponse);
-        assertEquals(404, enderecoApiResponse.getStatus_http());
-        assertEquals("01234-000", enderecoApiResponse.getCep());
-        assertEquals("O CEP 01234-000 não foi encontrado", enderecoApiResponse.getMensagem());
-        assertNull(enderecoApiResponse.getLogradouro());
-        assertNull(enderecoApiResponse.getBairro());
-        assertNull(enderecoApiResponse.getCidade());
-        assertNull(enderecoApiResponse.getUf());
+       String endpoint = enderecoApiUrlObject.getPath() + "/cep/01234000";
 
+        WiremockConfiguration.wireMockClientResponseJsonMock(wireMockServer, endpoint, HttpStatus.NOT_FOUND.value(), "payload/enderecoApiClient-getCep-notFound-01234000.json");
+
+        assertThrows(EnderecoApiClientZipCodeNotFoundException.class, () -> enderecoApiClient.find("01234000"));
     }
 
     @Test
@@ -99,7 +93,7 @@ public class EnderecoApiClientTest {
         wireMockServer.stop();
         wireMockServer.shutdown();
 
-        assertThrows(EnderecoApiClientException.class, () -> enderecoApiClient.find("01234000"));
+        assertThrows(RetryableException.class, () -> enderecoApiClient.find("01234000"));
 
 
     }

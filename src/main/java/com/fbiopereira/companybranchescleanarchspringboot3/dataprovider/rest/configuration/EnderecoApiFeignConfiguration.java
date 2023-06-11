@@ -16,7 +16,7 @@ public class EnderecoApiFeignConfiguration {
 
     @Value("${fbiopereira.enderecoApiClient.readTimeoutMilis}")
     public int readTimeoutMilis;
-
+/*
     @Bean
     public Logger.Level feignLoggerLevel() {
         return Logger.Level.FULL;
@@ -26,6 +26,8 @@ public class EnderecoApiFeignConfiguration {
     public OkHttpClient client() {
         return new OkHttpClient();
     }
+
+ */
     @Bean
     ErrorDecoder errorDecoder() {
         return new EnderecoApiErrorDecoder();

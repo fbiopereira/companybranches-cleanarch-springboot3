@@ -1,6 +1,6 @@
 package com.fbiopereira.companybranchescleanarchspringboot3.dataprovider.rest.mapper;
 import com.fbiopereira.companybranchescleanarchspringboot3.dataprovider.rest.response.EnderecoApiResponse;
-import com.fbiopereira.companybranchescleanarchspringboot3.model.Address;
+import com.fbiopereira.companybranchescleanarchspringboot3.core.model.Address;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

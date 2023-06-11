@@ -1,7 +1,7 @@
 package com.fbiopereira.companybranchescleanarchspringboot3.unit.domain.model;
 
 import com.fbiopereira.companybranchescleanarchspringboot3.exception.InvalidCompanyBranchNameException;
-import com.fbiopereira.companybranchescleanarchspringboot3.model.CompanyBranch;
+import com.fbiopereira.companybranchescleanarchspringboot3.core.model.CompanyBranch;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
